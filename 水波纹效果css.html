@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>水波纹效果</title>
+</head>
+<style>
+	div{
+		margin: auto;
+		margin-top: 100px;
+    	position: relative;
+    	border-radius: 50%;
+    	background: #000;
+		
+		width: 100px;
+    	height: 100px;
+	    box-shadow: 0 0 10px rgba(0,0,0,.5);
+	}
+	div:after{
+	content: ' ';
+	/* 设置基本样式 */
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    margin-left: -50%;
+    margin-top: -50%;
+    border-radius: 50%;
+
+
+    -webkit-opacity:.5;
+    background-color: inherit;
+    /* 添加动画效果 缓进缓出的效果*/
+    -webkit-animation: breathe 3s infinite ease-in-out .5s;
+    z-index: -1;
+}
+
+/* 水波纹动画效果 */
+@-webkit-keyframes breathe{
+    0% {
+        -webkit-transform:scale(.5);
+        -webkit-opacity:.9;
+    }
+    95%{
+        -webkit-transform:scale(1.5);
+        -webkit-opacity:0;
+    }
+    100%{
+        -webkit-transform:scale(.9);
+        -webkit-opacity:0;
+    }
+}
+</style>
+<body>
+	<div></div>
+</body>
+</html>
